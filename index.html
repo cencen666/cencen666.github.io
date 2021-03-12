@@ -152,6 +152,80 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2021-03-10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="20200307考核错题"><a href="#20200307考核错题" class="headerlink" title="20200307考核错题"></a>20200307考核错题</h1><font color=#999AAA >
+
+</font>
+
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+
+<h1 id="一、程序判断题"><a href="#一、程序判断题" class="headerlink" title="一、程序判断题"></a>一、程序判断题</h1><h2 id="4-接口问题"><a href="#4-接口问题" class="headerlink" title="4.接口问题"></a>4.接口问题</h2><h2 id="5-求输出内容"><a href="#5-求输出内容" class="headerlink" title="5.求输出内容"></a>5.求输出内容</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test5</span>&#123;</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		String str1 = <span class="string">&quot;666&quot;</span>;</span><br><span class="line">		System.out.println(str1==<span class="string">&quot;666&quot;</span>);</span><br><span class="line">		System.out.println(<span class="number">12</span><span class="number">-11.9</span> == <span class="number">0.1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>正确结果：<br>false<br>true<br><font color=#999AAA ></p>
+<h2 id="6-从以下抽象类shape类扩展出一个名为Rectangle的类表示矩形。"><a href="#6-从以下抽象类shape类扩展出一个名为Rectangle的类表示矩形。" class="headerlink" title="6.从以下抽象类shape类扩展出一个名为Rectangle的类表示矩形。"></a>6.从以下抽象类shape类扩展出一个名为Rectangle的类表示矩形。</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> abstract <span class="class"><span class="keyword">class</span> <span class="title">shape</span>&#123;</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> abstract <span class="keyword">double</span> <span class="title">getArea</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> abstract <span class="keyword">double</span> <span class="title">getPerimeter</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="title">extends</span> <span class="title">shape</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">double</span> width;</span><br><span class="line">	<span class="keyword">double</span> height;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">double</span> width,<span class="keyword">double</span> height)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>. width =  width;</span><br><span class="line">		<span class="keyword">this</span>. height =  height;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getArea</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> width*height;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getPerimeter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">2</span>*width*height;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、算法题"><a href="#二、算法题" class="headerlink" title="二、算法题"></a>二、算法题</h1><h2 id="删除排序数组中的重复元素"><a href="#删除排序数组中的重复元素" class="headerlink" title="删除排序数组中的重复元素"></a>删除排序数组中的重复元素</h2><p><font color=#999AAA >代码如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">       Arrays.sort(nums);</span><br><span class="line">       <span class="keyword">int</span> i,j=<span class="number">0</span>;</span><br><span class="line">       <span class="keyword">if</span>(nums.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(nums[i]!=nums[j])&#123;</span><br><span class="line">                j++;</span><br><span class="line">                nums[j]=nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> j+<span class="number">1</span>;</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="三、加分题"><a href="#三、加分题" class="headerlink" title="三、加分题"></a>三、加分题</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p><strong>1、 String字符串类对象有哪两种创建方法，这两种创建方法有什么不同？</strong><br>（1）String 对象名 = “字符串”；<br>（2）String 对象名 = new String (“字符串”)；<br>第一种是是对象存在常量池中，当进行比较的时候比的是值；<br>第二种当进行比较时，比较的时地址值，因为new是创建新的地址。</p>
+<p> <strong>2、两个对象值相同（x.equals(y）== true),但却可有两种不同的hash code，这句话对不对？</strong><br>      对，每个对象都有自己的hashcode码，这是唯一的，当两个对象用==比较时，比较他们的内存地址是否一致，如果一致，他们的hashcode一定相同。<br>而用equals比较时 ，许多类都重载该方法，单比较值而已，他们的内存地址可能不一致。</p>
+<font color=#999AAA >
+
+
+<font color=#999AAA >
+
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><font color=#999AAA >通过这次考核，首先看出了自己在寒假学习仍存在许多细节上的漏洞，同时学习速度也非常慢，题目中有一些关于接口的问题都一知半解，这需要在这两个周逐渐加快学习进度，对java进一步学习，除此之外，算法题一直都是我的一个大问题，从周日开始我坚持每天至少在leetcode上刷一道题目，由浅入深，循序渐进，希望在这个学期结束之前能让自己算法能力有一个大的进步。</p>
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1"
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/13/2021-03-10/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-学生证管理系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
