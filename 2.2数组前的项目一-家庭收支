@@ -1,0 +1,130 @@
+public class FamilyAccount {
+
+    public static void main(String[] var0) {
+        String var1 = "收支\t账户金额\t收支金额\t说    明\n";
+        int var2 = 10000;
+        boolean var3 = true;
+
+        do {
+            System.out.println("\n-----------------家庭收支记账软件-----------------\n");
+            System.out.println("                   1 收支明细");
+            System.out.println("                   2 登记收入");
+            System.out.println("                   3 登记支出");
+            System.out.println("                   4 退    出\n");
+            System.out.print("                   请选择(1-4)：");
+            char var4 = Utility.readMenuSelection();
+            System.out.println();
+            switch(var4) {
+                case '1':
+                    System.out.println("-----------------当前收支明细记录-----------------");
+                    System.out.println(var1);
+                    System.out.println("--------------------------------------------------");
+                    break;
+                case '2':
+                    System.out.print("本次收入金额：");
+                    int var5 = Utility.readNumber();
+                    System.out.print("本次收入说明：");
+                    String var6 = Utility.readString();
+                    var2 += var5;
+                    var1 = var1 + "收入\t" + var2 + "\t\t" + var5 + "\t\t" + var6 + "\n";
+                    System.out.println("---------------------登记完成---------------------");
+                    break;
+                case '3':
+                    System.out.print("本次支出金额：");
+                    int var7 = Utility.readNumber();
+                    System.out.print("本次支出说明：");
+                    String var8 = Utility.readString();
+                    var2 -= var7;
+                    var1 = var1 + "支出\t" + var2 + "\t\t" + var7 + "\t\t" + var8 + "\n";
+                    System.out.println("---------------------登记完成---------------------");
+                    break;
+                case '4':
+                    System.out.print("确认是否退出(Y/N)：");
+                    char var9 = Utility.readConfirmSelection();
+                    if (var9 == 'Y') {
+                        var3 = false;
+                    }
+            }
+        } while(var3);
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+
+public class Utility {
+    private static Scanner scanner;
+    static {
+        scanner = new Scanner(System.in);
+    }
+    public static char readMenuSelection() {
+        while(true) {
+            String var1 = readKeyBoard(1);
+            char var0 = var1.charAt(0);
+            if (var0 == '1' || var0 == '2' || var0 == '3' || var0 == '4') {
+                return var0;
+            }
+
+            System.out.print("选择错误，请重新输入：");
+        }
+    }
+
+    public static int readNumber() {
+        while(true) {
+            String var1 = readKeyBoard(4);
+
+            try {
+                int var0 = Integer.parseInt(var1);
+                return var0;
+            } catch (NumberFormatException var3) {
+                System.out.print("数字输入错误，请重新输入：");
+            }
+        }
+    }
+
+    public static String readString() {
+        String var0 = readKeyBoard(8);
+        return var0;
+    }
+
+    public static char readConfirmSelection() {
+        while(true) {
+            String var1;
+            var1 = readKeyBoard(1);
+            char var0 = var1.charAt(0);
+            if (var0 == 'Y' || var0 == 'N') {
+                return var0;
+            }
+
+            System.out.print("选择错误，请重新输入：");
+        }
+    }
+
+    private static String readKeyBoard(int var0) {
+        String var1 = "";
+
+        while(scanner.hasNext()) {
+            var1 = scanner.nextLine();
+            if (var1.length() >= 1 && var1.length() <= var0) {
+                break;
+            }
+
+            System.out.print("输入长度（不大于" + var0 + "）错误，请重新输入：");
+        }
+
+        return var1;
+    }
+
+
+}
