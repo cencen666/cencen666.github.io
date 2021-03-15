@@ -152,6 +152,60 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-csdn_export_md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>20210315考核问题：</p>
+<h1 id="一、this关键字"><a href="#一、this关键字" class="headerlink" title="一、this关键字"></a>一、this关键字</h1><p>this表示当前对象或正在创建的对象</p>
+<h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h2><p><strong>1. “this.属性”或“this . 方法”调用当前对象属性和方法;</strong><br>常用：this.参数名=参数名 ;<br><strong>2.this();表示无参构造方法;</strong><br>      无参构造方法一般是用来初始化：如为变量赋处置，初始化对象等。<br>      无参构造方法可以去除，JAVA会给每个类一个默认的无参构造方法；当一个类中若存在有参构造方法，若想再使用无参的构造方法，就必须写出无参构造方法。 在类中若存在有参构造方法时，最好加上一个无参构造方法。<br><strong>3.this(参数列表)表示有参构造方法;</strong><br>！！！构造器=构造方法</p>
+<p>eg：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Person</span> <span class="params">(<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>();<span class="comment">//调用了无参构造方法</span></span><br><span class="line">	<span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Person</span> <span class="params">(String name, <span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>(age);<span class="comment">//根据参数可知其进入1</span></span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、接口"><a href="#二、接口" class="headerlink" title="二、接口"></a>二、接口</h1><h2 id="接口中都是抽象方法"><a href="#接口中都是抽象方法" class="headerlink" title="接口中都是抽象方法"></a>接口中都是抽象方法</h2><p>即使定义了非抽象方法，它默认也是抽象的方法，实现类必须重写，只是省略的关键字abstract，实际上接口会自动给加上</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/15/csdn_export_md/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2021-03-10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
