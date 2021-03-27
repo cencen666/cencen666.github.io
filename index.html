@@ -152,6 +152,169 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2021-3-27" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 第四周总结<br>2021.3.22到2021.3.26</p>
+<p>@[TOC]<br><font color=#999AAA ><br></font></p>
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+
+<font color=#999AAA >
+
+<h1 id="一、super的使用"><a href="#一、super的使用" class="headerlink" title="一、super的使用"></a>一、super的使用</h1><h2 id="1-super关键字的说明："><a href="#1-super关键字的说明：" class="headerlink" title="1.super关键字的说明："></a>1.super关键字的说明：</h2><p>（1）.super理解为：父类的</p>
+<p>（2）.super用来调用父类的属性、方法和构造器</p>
+<p>（3）.super的使用</p>
+<ul>
+<li><blockquote>
+<p>可以在子类的方法构造器中，通过使用“super.属性”或“super.方法”方式， 显式的调用父类中声明的属性或方法，但通常习惯省略“super.”</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>特殊情况，当子类和父类中定义了同名的属性时，我们想在子类中调用父类声明的属性， 则必须是显式的使用“super.属性”的方式，表明是父类中声明的属性</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>特殊情况：当子类重写了父类中的方法以后，我们想在子类的方法中调用父类中被重写的方法时， 则必须是显式的使用“super.方法”的方式，表明调用的时父类中被重写的方法。</p>
+</blockquote>
+</li>
+</ul>
+<p>（4）.super调用构造器</p>
+<ul>
+<li><blockquote>
+<p>我们可以在子类的构造器中显式的使用“super(形参列表)”的方式，调用父类中声明的指定的构造器</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>“super（形参列表）”的使用，必须声明在子类构造器第一行</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>我们在构造器中，针对于“this（形参列表）”或“super（形参列表）”只能二选一，不能同时出现</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>在构造器首行，没有显式的声明“this（形参列表）”或“super（形参列表）”，则默认调用的是父类中空参的构造器</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>在类的多个构造器中至少有1个类的构造器中使用中“super（形参列表）”，调用父类中的构造器</p>
+</blockquote>
+</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//父类和子类同时声明了属性ID</span></span><br><span class="line">      System.out.println(<span class="string">&quot;ID = &quot;</span>+<span class="keyword">this</span>.id);<span class="comment">//找子类</span></span><br><span class="line">      System.out.println(<span class="string">&quot;ID = &quot;</span>+super.id);<span class="comment">//找父类</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、子类对象实例化过程"><a href="#二、子类对象实例化过程" class="headerlink" title="二、子类对象实例化过程"></a>二、子类对象实例化过程</h1><h2 id="1-从结果上看（继承性）："><a href="#1-从结果上看（继承性）：" class="headerlink" title="1.从结果上看（继承性）："></a>1.从结果上看（继承性）：</h2><ul>
+<li>子类继承父类以后，就获取了父类中声明的属性和方法。</li>
+<li> 创建子类的对象， 在堆空间中，就会加载所有父类中声明的属性和方法。</li>
+</ul>
+<h2 id="2-从过程上来看"><a href="#2-从过程上来看" class="headerlink" title="2.从过程上来看"></a>2.从过程上来看</h2><ul>
+<li>当我们通过子类的构造器创建子类对象时，我们一定会直接或间接的调用父类的构造器，进而调用父类的父类构造器，直到调用了java.lang.Object类中空参的构造器为止。正因为加载过所有父类的结构，所以才可以看到父类中的结构，子类对象才可以考虑进行调用。</li>
+</ul>
+<h2 id="3-明确"><a href="#3-明确" class="headerlink" title="3.明确"></a>3.明确</h2><ul>
+<li>虽然创建子类对象时，调用了父类的构造器，但是自始至终就创建过一个对象，即为new的子类对象</li>
+</ul>
+<h1 id="三、多态性"><a href="#三、多态性" class="headerlink" title="三、多态性"></a>三、多态性</h1><p><img src="https://img-blog.csdnimg.cn/20210327175639882.png" alt="在这里插入图片描述"></p>
+<h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1.概念"></a>1.概念</h2><p>（多态性是运行时行为）<br><img src="https://img-blog.csdnimg.cn/20210327181327121.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlbmNlbjY2Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>1.一个事物的多种形态</p>
+<p>2.对象的多态性：父类的引用指向子类的对象（子类的对象赋给父类引用）</p>
+<p>3.多态的使用：虚拟方法的调用<br><img src="https://img-blog.csdnimg.cn/20210327182342744.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlbmNlbjY2Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>例子<img src="https://img-blog.csdnimg.cn/20210327183640171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlbmNlbjY2Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<ul>
+<li>  有了对象的多态性以后，在编译期，只能调用父类中声明的方法，但在运行期，我们实际执行的是子类重写父类的方法<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象的多态性：父类的引用指向子类的对象</span></span><br><span class="line">		Person p2 = <span class="keyword">new</span> Man();</span><br><span class="line"><span class="comment">//多态的使用：当调用子父类同名同参的方法时，实际执行的是子类重写父类的方法——虚拟方法调用</span></span><br><span class="line">        p2.eat();<span class="comment">//用的是Man的eat()方法</span></span><br></pre></td></tr></table></figure></li>
+<li> 总结：**<em>编译看左边，运行看右边**</em>（即点击进入的时候发现进入的是左边Person的位置，但实际执行出来的内容却是右边对象的内容）</li>
+</ul>
+<p>4.多态性使用前提:（1)类的继承关系-&gt;2   (2)方法的重写-&gt;3</p>
+<p>5.多态性的使用只适用于方法，不适应于属性（属性无多态性，编译运行都看左边）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//多态性的使用只适用于方法，不适应于属性</span></span><br><span class="line">        System.out.println(p2.id);<span class="comment">//父类-&gt;1004 子类-&gt;1001 结果：1004</span></span><br><span class="line"> <span class="comment">//不能调用子类所持有的属性、方法，编译时p2是Person类型</span></span><br><span class="line">        p2.name = <span class="string">&quot;Tom&quot;</span>;<span class="comment">//Person有，可以调用使用</span></span><br><span class="line"><span class="comment">//有了对象的多态性以后，内存实际是加载了子类特有的属性和方法，</span></span><br><span class="line"><span class="comment">//但是由于声明为父类类型，导致编译时只能调用父类中的属性和方法。子类特有的属性和方法不能调用</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-作用"><a href="#2-作用" class="headerlink" title="2.作用"></a>2.作用</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用多态性，可省去多次使用重载方法，只需要创造对象即可，不需要一个一个调用</span></span><br><span class="line">        test.func(<span class="keyword">new</span> Dog());</span><br><span class="line">        test.func(<span class="keyword">new</span> Cat());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">(Animal animal)</span> </span>&#123;</span><br><span class="line">        animal.eat();</span><br><span class="line">        animal.shout();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//*************************************************</span></span><br><span class="line"><span class="comment">//不使用多态性</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">(Dog dog)</span> </span>&#123;</span><br><span class="line">    dog.eat();</span><br><span class="line">    dog.shout();</span><br><span class="line">&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">(Cat cat)</span> </span>&#123;</span><br><span class="line">        cat.eat();</span><br><span class="line">        cat.shout();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//*************************************************</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="三、instanceof的使用"><a href="#三、instanceof的使用" class="headerlink" title="三、instanceof的使用"></a>三、instanceof的使用</h1><p><img src="https://img-blog.csdnimg.cn/20210327175702928.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlbmNlbjY2Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="1-问题："><a href="#1-问题：" class="headerlink" title="1.问题："></a>1.问题：</h2><p> <strong>由二可知编译时只能调用父类中的属性和方法。子类特有的属性和方法不能调用。那么如何解决这个问题呢？</strong></p>
+<ul>
+<li>向下转型，使用强制类型转换符</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父类为id = 1004；子类为id = 1004；</span></span><br><span class="line">Man m1 = (Man)p2;</span><br><span class="line">        m1.money();</span><br><span class="line">        m1.isSmoke = <span class="literal">true</span>;</span><br><span class="line">        System.out.println(m1.id);<span class="comment">//输出子类-&gt;1001</span></span><br></pre></td></tr></table></figure>
+<p>但是有风险，例如基本数据类型会使精度损失，而这里有可能出现ClassCastException的异常</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	Woman w = (Woman)p2;</span><br><span class="line">w.money();</span><br></pre></td></tr></table></figure>
+
+<p>   <strong><em>因此引入了instanceof的使用：</em></strong><br>   a instanceof A :判断对象a是否为A的实例，如果是返回true，不是返回false<br>   即instanceof左边操作元显式声明的类型与右边操作元必须是同种类或有继承关系（父子类）<br>   例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (p2 instanceof Woman)&#123;</span><br><span class="line">    Woman w = (Woman)p2;<span class="comment">//此时成功编译但是没有输出</span></span><br><span class="line">    w.money();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是问题是Woman的方法依旧没有输出</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (p2 instanceof Man)&#123;</span><br><span class="line">          Man m1 = (Man)p2;<span class="comment">//此时成功编译且输出</span></span><br><span class="line">          m1.money();</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<p>而Man的方法却成功输出了<br>原因：因为p2从一开始就new了Man对象</p>
+<p><strong><em>注意事项：</em></strong></p>
+<ul>
+<li>使用强转时，为了避免出现异常，在转型前，先使用a instanceof A :判断对象a是否为A的实例判断</li>
+<li><strong>如果a instanceof A 返回true，a instanceof B 也返回true -&gt; 说明类B是类A的父类</strong></li>
+</ul>
+<h2 id="2-小例子："><a href="#2-小例子：" class="headerlink" title="2.小例子："></a>2.小例子：</h2><p>   <strong><em>1.编译过运行不过。需要用到instanceof</em></strong><br>    (1) </p>
+<blockquote>
+<p>person p3 = new Person();<br>        Man m3 = (Man)p3;</p>
+</blockquote>
+<p>   (2) </p>
+<blockquote>
+<p>Person p4 = new Person;<br>        Man m4 = (Man)p4;<br>//父类对象不能向下转成子类对象，因为父类不一定会有子类对象有的属性和方法</p>
+</blockquote>
+<p> <strong><em>2.编译通过运行也通过。</em></strong></p>
+<blockquote>
+<p>Object obj = new Woman();<br>        //子类可以向上转成父类的，因为子类肯定有父类的东西<br>         Person p = (Person)obj;</p>
+</blockquote>
+<p>   <strong><em>3.编译运行都不过</em></strong></p>
+<blockquote>
+<p> Man m5 = new Woman();//两者无任何关系</p>
+</blockquote>
+<p>4.（1）<br>如果e为Graduate类的对象<br>如果e为Student类的对象<br>如果e为Person类的对象<br><img src="https://img-blog.csdnimg.cn/20210327191618461.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlbmNlbjY2Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>e可以是同类或子类<br><img src="https://img-blog.csdnimg.cn/2021032718462687.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlbmNlbjY2Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="3-练习"><a href="#3-练习" class="headerlink" title="3.练习"></a>3.练习</h2><p><strong><em>（1）若子类重写了父类的方法，就意味着子类里定义的方法彻底覆盖了父类里同名的方法，系统将不再把父类里的方法转移到子类中；（编译看右边，运行看左边）</em></strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20210327181255279.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlbmNlbjY2Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><strong><em>2.对于实例变量（已经new了对象）则不存在这样的现象，即使子类里定义了与父类完全相同的实例变量，这个实例变量依然不可能覆盖父类中定义的实例变量。（编译运行都看左边）</em></strong></p>
+<h2 id="4-ps"><a href="#4-ps" class="headerlink" title="4.ps:"></a>4.ps:</h2><p>class Base1｛<br>    ……<br>｝<br>class Sub1 extends Base1{<br>   两个add<br>}<br><strong><em>1.</em></strong><br><img src="https://img-blog.csdnimg.cn/20210327201508864.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlbmNlbjY2Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>输出结果：sub_1<br>原因：Sub1相当于对Base1的重写，而在Sub1中第一个add的形参与Base1中的是一样的（形参一样，内容不一样，相当于重写），因此输出的是Sub1第一个add的语句。<br>（形参int[ ] a与int … a是一样的）</p>
+<p><strong><em>2.</em></strong><br><img src="https://img-blog.csdnimg.cn/20210327202412622.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlbmNlbjY2Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>强转: Sub1 s = (Sub1)base<br>即把类型向下转型，因此会输出Sub1的内容，<br>而该内容里边方法add（int a，int b，int c）与所给实参契合度最高，因此输出Sub_2</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/27/2021-3-27/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2021-3-25" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
