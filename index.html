@@ -152,6 +152,87 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-第五周算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第五周算法</p>
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+
+<h1 id="1、A-取石子"><a href="#1、A-取石子" class="headerlink" title="1、A-取石子"></a>1、A-取石子</h1><p>1堆石子有n个,两人轮流取.先取者第1次可以取任意多个，但不能全部取完.以后每次取的石子数不能超过上次取子数的2倍。取完者胜.先取者负输出”Second win”.先取者胜输出”First win”. </p>
+<p>Input<br>输入有多组.每组第1行是2&lt;=n&lt;2^31. n=0退出.<br>Output<br>先取者负输出”Second win”. 先取者胜输出”First win”. </p>
+<p>Sample Input<br>2<br>13<br>10000<br>0</p>
+<p>Sample Output<br>Second win<br>Second win<br>First win</p>
+<blockquote>
+<p>可以发现他是一个除去开头两个1的斐波那契数列为必败态<br><img src="https://img-blog.csdnimg.cn/20210407170412497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlbmNlbjY2Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner S = new Scanner(System.in);</span><br><span class="line">        int n;</span><br><span class="line">        int j;</span><br><span class="line">        int[] arr = new int[100000];</span><br><span class="line">        n = S.nextInt();</span><br><span class="line">        // int i;</span><br><span class="line">        arr[0] = 2;</span><br><span class="line">        arr[1] = 3;</span><br><span class="line">        <span class="keyword">for</span> (int i = 2; i &lt;= 50; i++) &#123;</span><br><span class="line">            arr[i] = arr[i - 1] + arr[i - 2];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (n != 0) &#123;</span><br><span class="line">            <span class="keyword">for</span> ( j = 0; j &lt;= 50; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (n == arr[j]) &#123;</span><br><span class="line">                    System.out.println(<span class="string">&quot;Second win&quot;</span>);</span><br><span class="line">                    <span class="built_in">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (n != arr[j]) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;First win&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            n = S.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="博弈"><a href="#博弈" class="headerlink" title="博弈"></a><strong><em>博弈</em></strong></h2><blockquote>
+<p> 1、博弈模型为两人轮流决策的非合作博弈。即两人轮流进行决策，并且两人都使用最优策略来获取胜利。<br>2、博弈是有限的。即无论两人怎样决策，都会在有限步后决出胜负。<br>3、公平博弈。即两人进行决策所遵循的规则相同。</p>
+</blockquote>
+<p>本着先理论后实践的原则，本文先对 <strong><strong><em>寻找必败态</em></strong></strong> 做出理论上的解释：要理解这种思想，首先要明白什么叫必败态。说简单点，必败态就是”在对方使用最优策略时，无论做出什么决策都会导致失败的局面”。其他的局面称为胜态，值得注意的是在胜态下做出错误的决策也有可能导致失败。此类博弈问题的精髓就是让对手永远面对必败态。</p>
+<blockquote>
+<p>必败态和胜态有着如下性质：<br>     1、若面临末状态者为获胜则末状态为胜态否则末状态为必败态。<br>      2、一个局面是胜态的充要条件是该局面进行某种决策后会成为必败态。<br>     3、一个局面是必败态的充要条件是该局面无论进行何种决策均会成为胜态</p>
+</blockquote>
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+
+<h1 id="2、B-利润"><a href="#2、B-利润" class="headerlink" title="2、B-利润"></a>2、B-利润</h1><p>奶牛们开始了新的生意，它们的主人约翰想知道它们到底能做得多好。这笔生意已经做了<br>N(1≤N≤100,000) 天，每天奶牛们都会记录下这一天的利润 Pi (−1000≤Pi≤1000)。<br>约翰想要找到奶牛们在连续的时间期间（至少一天）所获得的最大的总利润，请你写一个计算最大利润的程序来帮助他。</p>
+<p>输入格式<br>第一行，一个整数 N，表示天数。<br>接下来 N 行，每行一个整数 Pi。</p>
+<p>输出格式<br>一个整数，表示最大的总利润。<br>Sample Input<br>7<br>-3<br>4<br>9<br>-2<br>-5<br>8<br>-3<br>Sample Output<br>14</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">import static java.lang.Integer.max;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner s = new Scanner(System.in);</span><br><span class="line">        int n,i;</span><br><span class="line">        int[] a= new int[100000];</span><br><span class="line">        int sum;</span><br><span class="line">        int Max = 0;</span><br><span class="line">        n = s.nextInt();</span><br><span class="line">        <span class="keyword">for</span>(i=0;i&lt;n;i++)&#123;</span><br><span class="line">            a[i]=s.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line">        sum=a[0];</span><br><span class="line">        Max=a[0];</span><br><span class="line">        <span class="keyword">for</span>(i=1;i&lt;n;i++)&#123;</span><br><span class="line">           sum = max(sum+a[i],a[i]);</span><br><span class="line">           //sum记录目前加的和，a[i]代表接下来的数，</span><br><span class="line">           //如果sum+a[i]&lt;a[i],sum就会变成a[i]继续和下一个相邻的数相加</span><br><span class="line">           //否则还是原来所在位置的数</span><br><span class="line">           Max = max(Max,sum);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Max);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong><em>动态规划</em></strong><br>在求解任一子问题时，列出各种可能的局部解，通过决策保留那些有可能达到最优的局部解，丢弃其他局部解。依次解决各子问题，最后一个子问题就是初始问题的解。</p>
+<p>由于动态规划解决的问题多数有重叠子问题这个特点，为减少重复计算，对每一个子问题只解一次，将其不同阶段的不同状态保存在一个二维数组中。</p>
+<p>与分治法最大的差别是：适合于用动态规划法求解的问题，经分解后得到的子问题往往不是互相独立的（**<em>即下一个子阶段的求解是建立在上一个子阶段的解的基础上，进行进一步的求解**</em>）。</p>
+<blockquote>
+<p>能采用动态规划求解的问题的一般要具有3个性质：<br>(1)最优化原理：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构，即满足最优化原理。<br>(2) 无后效性：即某阶段状态一旦确定，就不受这个状态以后决策的影响。也就是说，某状态以后的过程不会影响以前的状态，只与当前状态有关。<br>(3)有重叠子问题：即子问题之间是不独立的，一个子问题在下一阶段决策中可能被多次使用到。（该性质并不是动态规划适用的必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势）</p>
+</blockquote>
+<p>如斐波那契数列就是动态规划的一个典例</p>
+<p>可使用递归，遍历，用max、min判断<br><img src="https://img-blog.csdnimg.cn/20210407170336392.png#pic_center" alt="在这里插入图片描述"></p>
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/07/%E7%AC%AC%E4%BA%94%E5%91%A8%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-第五周总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1742,81 +1823,10 @@ void stunums()
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/01/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2020/12/01/hello-world/" class="archive-article-date">
-  	<time datetime="2020-12-01T06:14:13.585Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/01/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
