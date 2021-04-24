@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="第八周总结2021.4.23   二、算法A - 三值排序排序是一种很频繁的计算任务。一个实际的例子是，当我们给某项竞赛的优胜者按金银铜牌排序的时候。在这个任务中可能的值只有三种1，2和3。我们用交换的方法把他排成升序的。 写一个程序计算出，计算出的一个包括1、2、3三种值的数字序列，排成升序所需的最少交换次数。 输入第1行为类别的数量N（1≤N≤1000） 输入第2行到第N+1行，每行包括一个数">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+<meta property="og:url" content="http://example.com/2021/04/24/%E7%AC%AC%E5%85%AB%E5%91%A8%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第八周总结2021.4.23   二、算法A - 三值排序排序是一种很频繁的计算任务。一个实际的例子是，当我们给某项竞赛的优胜者按金银铜牌排序的时候。在这个任务中可能的值只有三种1，2和3。我们用交换的方法把他排成升序的。 写一个程序计算出，计算出的一个包括1、2、3三种值的数字序列，排成升序所需的最少交换次数。 输入第1行为类别的数量N（1≤N≤1000） 输入第2行到第N+1行，每行包括一个数">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210424160855709.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlbmNlbjY2Ng==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210424160840860.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlbmNlbjY2Ng==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2021-04-24T08:10:07.816Z">
+<meta property="article:modified_time" content="2021-04-24T08:10:05.206Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210424160855709.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlbmNlbjY2Ng==,size_16,color_FFFFFF,t_70#pic_center">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,232 +157,257 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-第八周总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第八周总结<br>2021.4.23</p>
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+
+<h1 id="一、异常处理"><a href="#一、异常处理" class="headerlink" title="一、异常处理"></a>一、异常处理</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>异常</strong>：<br>在Java语言中，将程序执行中发生的不正常的情况称为“异常”。(语法错误和逻辑错误不是异常)</p>
+<p><strong>分大类：(一般只考虑第二种的更改)</strong><br><strong><em>1.Error</em></strong>：Java虚拟机无法解决的严重问题。一般不编写针对性的代码进行处理,只有改代码<br>        例如：JVM系统内部错误，资源耗尽</p>
+<p><strong><em>2.Exception</em></strong>：其他因编程错误或偶然的外在因素导致的一般性问题，可以使用针对性的代码进行处理。<br>        例如：空指针访问，试图读取不存在的文件，网络连接中断，数组角标越界<br>（1）编译时异常（受检异常）在javac.exe阶段<br>（2）运行时异常（非受检异常）在java.exe阶段<br><img src="https://img-blog.csdnimg.cn/20210424160855709.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlbmNlbjY2Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="异常体系结构"><a href="#异常体系结构" class="headerlink" title="异常体系结构"></a>异常体系结构</h2><p><strong>java.lang.Throwable</strong>含有：</p>
+<p>（1） java.lang.Error:一般不编写针对性的代码进行处理</p>
+<p>（2）java.lang.Exception:可以进行异常的处理</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">|---编译时异常（checked）（有提示）</span><br><span class="line">    |---IOException</span><br><span class="line">        |---FileNotFoundException</span><br><span class="line">    |---ClassNotFoundException</span><br><span class="line"></span><br><span class="line">|---运行时异常（unchecked）</span><br><span class="line">    |---NullPointerException</span><br><span class="line">    |---ArrayIndexOutOfBoundsExcpteion</span><br><span class="line">    |---ClassCastException</span><br><span class="line">    |---NumberFormatException</span><br><span class="line">    |---ArithmaticException（算数异常）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>面试题：常见的异常有哪些？</p>
+<p>异常例子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Exception</span> &#123;</span></span><br><span class="line">    <span class="comment">//******************以下是编译时异常***************************</span></span><br><span class="line">    @Test</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test7</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//文件处理</span></span><br><span class="line">		File file = <span class="keyword">new</span> File(<span class="string">&quot;hello.txt&quot;</span>);</span><br><span class="line">		FileInputStream fis = <span class="keyword">new</span> FileInputStream(file);<span class="comment">//java.io.FileNotFoundException</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> data = fis.read();<span class="comment">//java.io.IOException</span></span><br><span class="line">		<span class="keyword">while</span>(data != <span class="number">-1</span>)&#123;</span><br><span class="line">			System.out.print((<span class="keyword">char</span>)data);</span><br><span class="line">			data = fis.read();<span class="comment">//java.io.IOException</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fis.close();<span class="comment">//java.io.IOException</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//******************以下是运行时异常***************************</span></span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test6</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//计算时异常：ArithmeticException</span></span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">0</span>;</span><br><span class="line">        System.out.println(a / b);<span class="comment">//分母不为0</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test5</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//输入不匹配异常：InputMismatchException</span></span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> score = scanner.nextInt();</span><br><span class="line">        System.out.println(score);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test4</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//数字格式异常：NumberFormatException</span></span><br><span class="line">        String str = <span class="string">&quot;123&quot;</span>;</span><br><span class="line">        str = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">        <span class="keyword">int</span> num = Integer.parseInt(str);<span class="comment">//把str解析为int型</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//ClassCastException:强转错误</span></span><br><span class="line">        Object obj = <span class="keyword">new</span> Date();</span><br><span class="line">        String str = (String)obj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//2.数组角标越界：ArrayIndexOutOfBoundsExcpteion</span></span><br><span class="line">        <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">20</span>];</span><br><span class="line">        System.out.println(arr[<span class="number">30</span>]);</span><br><span class="line"><span class="comment">//字符串越界：java.lang.StringIndexOutOfBoundsException</span></span><br><span class="line">        String str = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">        System.out.println(str.charAt(<span class="number">4</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//1.空指针:java.lang.NullPointerException</span></span><br><span class="line">        <span class="keyword">int</span> []arr = null;</span><br><span class="line">        System.out.println(arr[<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">        String str = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">        str = null;</span><br><span class="line">        System.out.println(str.charAt(<span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="异常处理：抛捉模型"><a href="#异常处理：抛捉模型" class="headerlink" title="异常处理：抛捉模型"></a>异常处理：抛捉模型</h2><p><strong>过程一 “抛”</strong>：程序在正常执行的过程中，一旦出现异常，就会在异常代码处生成一个对应异常的对象。 并将此对象抛出。</p>
+<blockquote>
+<p>一旦抛出对象以后，其后的代码就不再执行。</p>
+</blockquote>
+<p> 关于异常对象的产生：（1）系统自动生成一个异常对象（2）手动的生成一个异常对象，并抛出（throw）注意：不是throws</p>
+<p><strong>过程二 “抓”</strong>：异常处理方式<br>        (1)try-catch-finally<br>        (2)throws</p>
+<h2 id="1-异常处理的方式1：try-catch-finally-方式"><a href="#1-异常处理的方式1：try-catch-finally-方式" class="headerlink" title="1. 异常处理的方式1：try-catch-finally 方式"></a>1. 异常处理的方式1：try-catch-finally 方式</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  		<span class="comment">//把可能出现异常的代码包起来</span></span><br><span class="line"></span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型<span class="number">1</span> 变量名<span class="number">1</span>)&#123;</span><br><span class="line">  		<span class="comment">//处理异常的方式1</span></span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型<span class="number">2</span> 变量名<span class="number">2</span>)&#123;</span><br><span class="line"> 		<span class="comment">//处理异常的方式2</span></span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型<span class="number">3</span> 变量名<span class="number">3</span>)&#123;</span><br><span class="line">  		<span class="comment">//处理异常的方式3</span></span><br><span class="line">  &#125;</span><br><span class="line">  ....</span><br><span class="line">  finally&#123;</span><br><span class="line">  		<span class="comment">//一定会执行的代码</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>   说明：</p>
+<ol>
+<li><p>finally是可选的。（不一定要写）</p>
+</li>
+<li><p>使用try将可能出现异常代码包装起来，在执行过程中，一旦出现异常，就会生成一个对应异常类的对象，根据此对象<br>的类型，去catch中进行匹配</p>
+</li>
+<li><p>一旦try中的异常对象匹配到某一个catch时，就进入catch中进行异常的处理。一旦处理完成，就跳出当前的<br>try-catch结构（在没有写finally的情况）。继续执行其后的代码</p>
+</li>
+<li><p>catch中的异常类型如果 没有 子父类关系，则谁声明在上，谁声明在下无所谓。<br>catch中的异常类型如果 满足 子父类关系，则要求子类一定声明在父类的上面。否则，报错</p>
+</li>
+<li><p>常用的异常对象处理的方式：<br>① String  getMessage() 返回String类型，一般显示异常信息<br>② printStackTrace()   返回堆、栈的信息，包括错误在哪个位置</p>
+</li>
+<li><p>在try结构中声明的变量，再出了try结构以后，就不能再被调用</p>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">10</span>;<span class="comment">//解决办法，从try中提出来定义</span></span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">  		<span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  。。。。。。</span><br><span class="line">  System.out.println(num);<span class="comment">//报错无法打印</span></span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li><p>try-catch-finally结构可以嵌套（但是没必要）</p>
+<blockquote>
+<p>体会1：使用try-catch-finally处理编译时异常，是得程序在编译时就不再报错，但是运行时仍可能报错。<br> 相当于我们使用try-catch-finally将一个编译时可能出现的异常，延迟到运行时出现。</p>
+</blockquote>
+<blockquote>
+<p>体会2：开发中，由于运行时异常比较常见，所以我们通常就不针对运行时异常编写try-catch-finally了。<br>  针对于编译时异常，我们说一定要考虑异常的处理。</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//数字格式异常：NumberFormatException</span></span><br><span class="line">        String str = <span class="string">&quot;123&quot;</span>;</span><br><span class="line">        str = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> num = Integer.parseInt(str);</span><br><span class="line"></span><br><span class="line"><span class="comment">//            Object obj = new Date();//---&gt;不执行,因为已经执行了上边一条语句</span></span><br><span class="line"><span class="comment">//            String str1 = (String)obj;</span></span><br><span class="line">            System.out.println(<span class="string">&quot;包内1&quot;</span>);<span class="comment">//---&gt;不执行</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//报错，因为是下两个父类，如果在上边就会只执行父类的内容</span></span><br><span class="line"><span class="comment">//        catch (Exception E)&#123;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line">        <span class="keyword">catch</span>(NumberFormatException e)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;数字格式异常&quot;</span>);<span class="comment">//---&gt;执行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//            String getMessage()</span></span><br><span class="line">			System.out.println(e.getMessage());<span class="comment">//---&gt;For input string: &quot;abc&quot;</span></span><br><span class="line">            e.printStackTrace();<span class="comment">//---&gt;位置信息等即堆栈信息</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">catch</span> (ClassCastException e)&#123;</span><br><span class="line">        <span class="comment">//由于try-catch执行一次就继续往下走了，不会回try再执行一次</span></span><br><span class="line">            System.out.println(<span class="string">&quot;强转错误&quot;</span>);<span class="comment">//---&gt;不执行   </span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//由于异常抛出后，程序可正常往下运行</span></span><br><span class="line">        System.out.println(<span class="string">&quot;继续2&quot;</span>);<span class="comment">//---&gt;执行</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>  <strong><em>try-catch-finally中finally的使用：</em></strong></p>
+<p> 1.finally是可选的</p>
+<p>2.finally中声明的是一定会被执行的代码。即使catch中又出现异常了，try中有return语句，catch中有return语句等情况。</p>
+<p>  3.像数据库连接、输入输出流、网络编程Socket等资源，JVM是不能自动的回收的，我们需要自己手动的进行资源的释放。此时的资源释放，就需要声明在finally中。</p>
+<p><strong>面试题</strong>：final、finally、finallize区别</p>
+<p>例子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FinallyTest</span> &#123;</span></span><br><span class="line">    @Test</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        FileInputStream fis = null;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            File file = <span class="keyword">new</span> File(<span class="string">&quot;hello1.txt&quot;</span>);</span><br><span class="line">            fis = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> data = fis.read();</span><br><span class="line">            <span class="keyword">while</span>(data != <span class="number">-1</span>)&#123;</span><br><span class="line">                System.out.print((<span class="keyword">char</span>)data);</span><br><span class="line">                data = fis.read();</span><br><span class="line">            &#125;</span><br><span class="line"><span class="comment">//            fis.close();//放在此处不一定执行</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;finally&#123;</span><br><span class="line"> <span class="comment">//           fis.close();//只放这个在finally里边时仍然报异常，因此还需在finally里边继续处理异常</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(fis != null)</span><br><span class="line">                    fis.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num = method();</span><br><span class="line">        System.out.println(num);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">            System.out.println(arr[<span class="number">10</span>]);<span class="comment">//出现第二种异常，跑到第二条catch语句中</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">catch</span>(ArrayIndexOutOfBoundsException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        &#125;finally&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;我一定会被执行&quot;</span>);<span class="comment">//在return 2 执行前一定先输出finally里的内容</span></span><br><span class="line"><span class="comment">//            return 3;//如果打开就不会 return 2，而是return 3</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">int</span> b = <span class="number">0</span>;</span><br><span class="line">            System.out.println(a / b);</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">catch</span>(ArithmeticException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">			System.out.println(arr[<span class="number">10</span>]);</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//当在catch中出现异常</span></span><br><span class="line">        <span class="comment">//1开2关  1不被执行</span></span><br><span class="line">        <span class="comment">//2开1关  2被执行</span></span><br><span class="line"><span class="comment">//		System.out.println(&quot;啊！！！~~&quot;);//1</span></span><br><span class="line">        finally&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;啊~~&quot;</span>);<span class="comment">//2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-异常处理的方式2：throws-异常类型"><a href="#2-异常处理的方式2：throws-异常类型" class="headerlink" title="2.异常处理的方式2：throws + 异常类型"></a>2.异常处理的方式2：throws + 异常类型</h2><ol>
+<li>“throws + 异常类型”写在方法的声明处。指明此方法执行时，可能会抛出的异常类型。<blockquote>
+<p>一旦当方法体执行时，出现异常，仍会在异常代码处生成一个异常类的对象，此对象满足throws后异常类型时，就会被抛出。异常代码后续的代码，就不再执行！</p>
+</blockquote>
+</li>
+</ol>
+<p>接收抛出异常的方法继承的异常 也必须是 所抛出异常的异常父类</p>
+<ol start="2">
+<li>体会：try-catch-finally:真正的将异常给处理掉了。<pre><code>throws的方式只是将异常抛给了方法的调用者。  并没有真正将异常处理掉。</code></pre>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solve2</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            method2();</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">catch</span>(IOException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//		method3();</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method3</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            method2();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span> throws IOException </span>&#123;</span><br><span class="line">        method1();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//FileNotFoundException是IOException的子类，如果处理方法一样（即catch出来的内容一样），可以省略前者</span></span><br><span class="line">    public static void method1() throws FileNotFoundException,IOException&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">&quot;hello1.txt&quot;</span>);</span><br><span class="line">        FileInputStream fis = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> data = fis.read();</span><br><span class="line">        <span class="keyword">while</span>(data != <span class="number">-1</span>)&#123;</span><br><span class="line">            System.out.print((<span class="keyword">char</span>)data);</span><br><span class="line">            data = fis.read();</span><br><span class="line">        &#125;</span><br><span class="line">        fis.close();</span><br><span class="line">        System.out.println(<span class="string">&quot;hahaha!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3. 开发中如何选择使用try-catch-finally 还是使用throws？</strong></p>
+<blockquote>
+<p>3.1 如果父类中被重写的方法没有throws方式处理异常，则子类重写的方法也不能使用throws，<strong>意味着如果子类重写的方法中有异常，必须使用try-catch-finally方式处理。</strong>（throws只能向上抛出，即向父类抛出，因此如果是最大父类出异常就只能try-catch-finall了）</p>
+</blockquote>
+<blockquote>
+<p>3.2 执行的方法a中，先后又调用了另外的几个方法，这几个方法是递进关系执行的。我们建议这几个方法使用throws的方式进行处理。而执行的方法a（main方法）可以考虑使用try-catch-finally方式进行处理。</p>
+</blockquote>
+<p><strong>throw和throws的区别</strong>：</p>
+<blockquote>
+<p>throw表示抛出一个异常类的对象，生成异常对象的过程，声明在方法体内；<br>throws属于异常处理的一种方式，声明在方法的声明处；</p>
+</blockquote>
+<h2 id="方法重写的规则之一："><a href="#方法重写的规则之一：" class="headerlink" title="方法重写的规则之一："></a>方法重写的规则之一：</h2><p>子类重写的方法抛出的异常类型不大于父类被重写的方法抛出的异常类型</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OverrideTest</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        OverrideTest test = <span class="keyword">new</span> OverrideTest();</span><br><span class="line">        test.display(<span class="keyword">new</span> SubClass());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">(SuperClass s)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            s.method();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span>&#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> throws IOException</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="title">extends</span> <span class="title">SuperClass</span>&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span>throws FileNotFoundException</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//    public void method()throws Exception&#123;  </span></span><br><span class="line">	<span class="comment">//类型比IOException大，不可以！</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="手动抛出异常throw："><a href="#手动抛出异常throw：" class="headerlink" title="手动抛出异常throw："></a>手动抛出异常throw：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StuTest</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Stu s = <span class="keyword">new</span> Stu();</span><br><span class="line">            s.regist(<span class="number">-1000</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line"><span class="comment">//            e.printStackTrace();</span></span><br><span class="line">            System.out.println(e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stu</span>&#123;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">regist</span><span class="params">(<span class="keyword">int</span> id)</span> throws Exception </span>&#123;<span class="comment">//把生成的抛出去</span></span><br><span class="line">        <span class="keyword">if</span> (id &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">this</span>.id = id;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//手动抛出异常</span></span><br><span class="line"><span class="comment">//            throw new RuntimeException(&quot;输入异常&quot;);</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;输入异常&quot;</span>);<span class="comment">//手动生成异常</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="自定义异常类："><a href="#自定义异常类：" class="headerlink" title="自定义异常类："></a>自定义异常类：</h2><p>1.继承于现有异常结构，RuntimeException、Exception<br>2.提供全局常量：serialVersionUID = ……L;//能证明是唯一的异常即可<br>3.提供重载的构造器</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyException</span> <span class="title">extends</span> <span class="title">Exception</span>&#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">-7034897190745766939L</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyException</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyException</span><span class="params">(String msg)</span></span>&#123;</span><br><span class="line">        super(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StuTest</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Stu s = <span class="keyword">new</span> Stu();</span><br><span class="line">            s.regist(<span class="number">-1000</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line"><span class="comment">//            e.printStackTrace();</span></span><br><span class="line">            System.out.println(e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stu</span>&#123;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">regist</span><span class="params">(<span class="keyword">int</span> id)</span> throws Exception </span>&#123;<span class="comment">//把生成的抛出去</span></span><br><span class="line">        <span class="keyword">if</span> (id &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">this</span>.id = id;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> MyException(<span class="string">&quot;不能输入负数&quot;</span>);<span class="comment">//自定义异常类</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>练习题：<br>1.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReturnException</span>&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;A&quot;</span>);<span class="comment">//1</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">&quot;制造异常&quot;</span>);<span class="comment">//与4一同出现显示为红色提示报错</span></span><br><span class="line">        &#125;finally &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;FA&quot;</span>);<span class="comment">//2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            method();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            System.out.println(e.getMessage());<span class="comment">//4</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> i = Integer.parseInt(args[<span class="number">0</span>]);</span><br><span class="line">            <span class="keyword">int</span> j = Integer.parseInt(args[<span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">int</span> result = ecm(i,j);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (NumberFormatException e)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;数据类型不一致&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (ArrayIndexOutOfBoundsException e)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;缺少命令行参数&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (ArithmeticException e)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;分母不为0&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (EcDef e)&#123;</span><br><span class="line">            System.out.println(e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">ecm</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span> throws EcDef</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; <span class="number">0</span>||j &lt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> EcDef(<span class="string">&quot;分子或分母为负数了！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i / j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EcDef</span> <span class="title">extends</span> <span class="title">Exception</span>&#123;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">-7034897166939L</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EcDef</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EcDef</span><span class="params">(String msg)</span></span>&#123;</span><br><span class="line">        super(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210424160840860.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NlbmNlbjY2Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+
+<h1 id="二、算法"><a href="#二、算法" class="headerlink" title="二、算法"></a>二、算法</h1><h2 id="A-三值排序"><a href="#A-三值排序" class="headerlink" title="A - 三值排序"></a>A - 三值排序</h2><p>排序是一种很频繁的计算任务。一个实际的例子是，当我们给某项竞赛的优胜者按金银铜牌排序的时候。在这个任务中可能的值只有三种1，2和3。我们用交换的方法把他排成升序的。</p>
+<p>写一个程序计算出，计算出的一个包括1、2、3三种值的数字序列，排成升序所需的最少交换次数。</p>
+<p>输入第1行为类别的数量N（1≤N≤1000）</p>
+<p>输入第2行到第N+1行，每行包括一个数字（1或2或3）。</p>
+<p>输出包含一行，为排成升序所需的最少交换次数。</p>
+<p>Sample Input<br>9<br>2<br>2<br>1<br>3<br>3<br>3<br>2<br>3<br>1<br>Sample Output<br>4</p>
+<p>思路：<br>（1）计算1、2、3三种数字的个数，并把他们分成三段；<br>（2）第一段装的是1，因此不是1的数需要被换出去，记作sum1；<br>（3）第二段装的是2，因此是3数的要换出去，记作sum2；<br>（4）第三段装的是3，因此是2的数要换出去，记作sum3；</p>
+<blockquote>
+<p>由于如果在二和三段选择不是2或者3的数来记录，就会重复记录已将换到第一段的数，造成重复计算，所以条件是非2和非3</p>
+</blockquote>
+<p>（5）<strong>最后要选择在二和三段不是本段的数最大的数来参与计算</strong>，这是关键</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span>&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner s = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> n,k;</span><br><span class="line">        <span class="keyword">int</span> sum1=<span class="number">0</span>,sum2=<span class="number">0</span>,sum3=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> a=<span class="number">0</span>,b=<span class="number">0</span>,c=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> []arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">1000</span>];</span><br><span class="line">        n = s.nextInt();</span><br><span class="line">        <span class="comment">//统计1，2，3的个数，分区段</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</span><br><span class="line">            arr[i] = s.nextInt();</span><br><span class="line">            <span class="keyword">if</span> (arr[i]==<span class="number">1</span>)&#123;</span><br><span class="line">                a++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (arr[i]==<span class="number">2</span>)&#123;</span><br><span class="line">                b++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (arr[i]==<span class="number">3</span>)&#123;</span><br><span class="line">                c++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//第一段不为1</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; a;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] != <span class="number">1</span>) &#123;</span><br><span class="line">                sum1++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//1已换入第一段，所以以下被除去</span></span><br><span class="line">        <span class="comment">//第二段为3的数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = a;i &lt; a+b;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] == <span class="number">3</span>) &#123;</span><br><span class="line">				sum2++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//第三段为2的数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = a+b;i &lt; n;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i]==<span class="number">2</span>)&#123;</span><br><span class="line">                    sum3++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        k=Math.max(sum2,sum3);<span class="comment">//选出二、三段不属于自己段里的数最多的数</span></span><br><span class="line">        System.out.println(sum1+k);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="B-自然数拆分"><a href="#B-自然数拆分" class="headerlink" title="B - 自然数拆分"></a>B - 自然数拆分</h2><p>对于任意大于 1的自然数 n，总是可以拆分成若干个小于 n 的自然数之和。<br>现请你编写程序求出 n的所有拆分。</p>
+<p>输入格式<br>输入文件共一行，包含一个自然数，即要拆分的自然数<br>n(1≤n≤20)。</p>
+<p>输出格式<br>输出文件有若干行，每行包含一个等式，即代表一种可行的拆分（格式与顺序参见样例）。</p>
+<p>Sample Input<br>5<br>Sample Output<br>5=1+1+1+1+1<br>5=1+1+1+2<br>5=1+1+3<br>5=1+2+2<br>5=1+4<br>5=2+3</p>
+<p>关键：<br>（1）递归使每次最后一个数+1，让装拆分的自然数分别放入数组a中，让数组最后一个数装每次+1后的数（a[k] = i），并让之前剩下的数减去递归回来+1后的数；<br>（2）打印条件不能使 k == 1，否则会打印出 5 = 5；</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> &#123;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">1000</span>];</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> sum;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner s = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> n;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">1</span>;<span class="comment">//下标</span></span><br><span class="line">        n = s.nextInt();</span><br><span class="line">        sum = n;</span><br><span class="line">        sum(n,k);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i,j;</span><br><span class="line">        <span class="keyword">int</span> h;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= n; i++) &#123;<span class="comment">//每次重新调用该函数时都会让数组中最后一个数+1</span></span><br><span class="line">            <span class="keyword">if</span> (i &gt;= a[k - <span class="number">1</span>]) &#123;<span class="comment">//前提：当前一个数小于后一个</span></span><br><span class="line">                a[k] = i;<span class="comment">//该组数的最后一个为i</span></span><br><span class="line">                h = n - i;<span class="comment">//计算剩余的数，之后一直循环，且i值不变</span></span><br><span class="line">                </span><br><span class="line">                 <span class="comment">//输出解</span></span><br><span class="line">                <span class="keyword">if</span> (h == <span class="number">0</span> &amp;&amp; k&gt;<span class="number">1</span>) &#123;</span><br><span class="line">                    System.out.print(sum + <span class="string">&quot;=&quot;</span>);</span><br><span class="line">                    <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt; k; j++) &#123; </span><br><span class="line">                        System.out.print(a[j] + <span class="string">&quot;+&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    System.out.print(a[k]);</span><br><span class="line">                    System.out.println();<span class="comment">//打印完一种之后，i变，由于前者通过else重新调用，所以i不变，直到下一次循环加一</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    sum(h, k + <span class="number">1</span>);<span class="comment">//重复减并放到数组a中</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/24/%E7%AC%AC%E5%85%AB%E5%91%A8%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2021-04-24T08:10:07.816Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-24</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/04/24/%E7%AC%AC%E5%85%AB%E5%91%A8%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/18/%E7%AC%AC%E5%85%AD%E3%80%81%E4%B8%83%E5%91%A8%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2021-04-18T07:24:24.224Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/07/%E7%AC%AC%E4%BA%94%E5%91%A8%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-04-07T09:07:33.236Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-07</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+  
+    <a href="/2021/04/18/%E7%AC%AC%E5%85%AD%E3%80%81%E4%B8%83%E5%91%A8%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/04/02/%E7%AC%AC%E4%BA%94%E5%91%A8%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2021-04-02T10:12:37.963Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/27/%E7%AC%AC%E5%9B%9B%E5%91%A8%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2021-03-27T12:31:31.494Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/25/%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-03-25T15:03:24.424Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-25</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/24/%E7%AC%AC%E4%B8%89%E5%91%A8%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2021-03-24T12:47:20.838Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-24</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/15/%E5%B0%8F%E7%9F%A5%E8%AF%861/" class="archive-article-date">
-  	<time datetime="2021-03-15T15:35:40.283Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/13/20210307%E8%80%83%E6%A0%B8%E9%94%99%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2021-03-12T16:22:37.923Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/24/%E5%AD%A6%E7%94%9F%E8%AF%81%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2021-01-24T07:25:36.458Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-24</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -398,8 +430,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
